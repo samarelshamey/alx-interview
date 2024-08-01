@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
     n = len(boxes)
     if n == 0:
         return False
-    
+
     opened = set([0])
     queue = [0]
 
