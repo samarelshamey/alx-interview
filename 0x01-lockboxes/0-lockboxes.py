@@ -1,6 +1,14 @@
 #!/usr/bin/python3
+"""lockbox solution"""
+
 
 def canUnlockAll(boxes):
+    """check if boxes can be opened
+    Args:
+        boxes: list
+    Returns: boalen
+    """
+
     n = len(boxes)
     if n == 0:
         return False
