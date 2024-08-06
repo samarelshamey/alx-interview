@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """method to calculate minimum number of operaion needed"""
 
+
 def minOperations(n):
     if n <= 1:
         return 0
