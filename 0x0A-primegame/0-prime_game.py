@@ -1,27 +1,42 @@
 #!/usr/bin/python3
-"""Island Perimeter Problem
-"""
+"""0. Prime Game - Maria and Ben are playing a game"""
 
 
-def island_perimeter(grid):
+def isWinner(x, nums):
+    """x - rounds
+    nums - numbers list
     """
-    Calculates the perimeter of the island described in grid
-    Args:
-        grid: 2d list of integers containing 0(water) or 1(land)
-    Return:
-        the perimeter of the island
-    """
+    if x <= 0 or nums is None:
+        return None
+    if x != len(nums):
+        return None
 
-    p = 0
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            if (grid[i][j] == 1):
-                if (i <= 0 or grid[i - 1][j] == 0):
-                    p += 1
-                if (i >= len(grid) - 1 or grid[i + 1][j] == 0):
-                    p += 1
-                if (j <= 0 or grid[i][j - 1] == 0):
-                    p += 1
-                if (j >= len(grid[i]) - 1 or grid[i][j + 1] == 0):
-                    p += 1
-    return p
+    ben = 0
+    maria = 0
+
+    a = [1 for x in range(sorted(nums)[-1] + 1)]
+    a[0], a[1] = 0, 0
+    for i in range(2, len(a)):
+        rm_multiples(a, i)
+
+    for i in nums:
+        if sum(a[0:i + 1]) % 2 == 0:
+            ben += 1
+        else:
+            maria += 1
+    if ben > maria:
+        return "Ben"
+    if maria > ben:
+        return "Maria"
+    return None
+
+
+def rm_multiples(ls, x):
+    """removes multiple
+    of primes
+    """
+    for i in range(2, len(ls)):
+        try:
+            ls[i * x] = 0
+        except (ValueError, IndexError):
+            break
