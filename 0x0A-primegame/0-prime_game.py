@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""0. Prime Game - Maria and Ben are playing a game"""
+"""Prime Game"""
 
 
 def isWinner(x, nums):
@@ -32,9 +32,7 @@ def isWinner(x, nums):
 
 
 def rm_multiples(ls, x):
-    """removes multiple
-    of primes
-    """
+    """Removes multiple of primes"""
     for i in range(2, len(ls)):
         try:
             ls[i * x] = 0
